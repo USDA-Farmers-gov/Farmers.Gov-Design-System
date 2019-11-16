@@ -17,6 +17,8 @@
 
     }
     .nav-inner {
+      display: flex;
+      flex-direction: column;
       width: 100%;
       position: relative;
       transition: .25s ease-in-out;
@@ -25,11 +27,19 @@
 
       .callout-button {
         order: 3;
+        box-shadow: none;
       }
 
       .nav-close {
-        top: -1.7rem;
-        right: -1.6rem;
+        border: none;
+        background: url('../images/close-white.svg');
+        background-position: right top;
+        background-repeat: no-repeat;
+        align-self: flex-end;
+        height: 1.8rem;
+        width: 1.8rem;
+        // top: -1.7rem;
+        // right: -1.6rem;
       }
 
       .search-field {
@@ -40,6 +50,18 @@
 
       .utility-nav {
         order: 4;
+        .utility-nav-links {
+          display:flex;
+          flex-direction: column;
+
+          li {
+            padding-left: 0;
+            a {
+              color: #fff;
+              font-size: 1.3rem;
+            }
+          }
+        }
       }
 
       .primary-nav {
@@ -54,17 +76,19 @@
           }
         }
         button {
-          background-image: url(../img/arrow-right-white.svg);
+          width: 100%;
+          background-image: url(../images/arrow-right-white.svg);
           background-size: 0.7rem;
           background-position: right center;
+          background-repeat: no-repeat;
           &[aria-controls|=megamenu] span{
             background-image: none;
           }
         }
 
-        // .nav-link {
-        //   padding-left: 0;
-        // }
+        .nav-link {
+          padding-left: 0;
+        }
       }
 
       &.mobile-nav-lvl-3, &.mobile-nav-lvl-4 {
@@ -77,7 +101,7 @@
           margin: 3.4rem 0 0 0;
           padding: 1rem 2rem;
           border-bottom: 1px solid #49A564;
-          background-image: url(../img/arrow-left-white.svg);
+          background-image: url(../images/arrow-left-white.svg);
           background-repeat: no-repeat;
           background-position: left center;
           cursor: pointer;
@@ -133,7 +157,7 @@
         }
 
         .usa-accordion-button.nav-link[aria-controls|=megamenu] span {
-            background: url(../img/arrow-down-white.svg) no-repeat;
+            background: url(../images/arrow-down-white.svg) no-repeat;
             background-position: right;
             background-size: 1rem;
             font-size: 1.8rem;
