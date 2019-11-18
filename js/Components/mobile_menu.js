@@ -10,119 +10,121 @@ jQuery(function($){
       isMobile = true;
     }
 
-    if (!is_iPad) {
       // TODO: check if the Math bit here is needed.
     // if (!is_iPad && Math.abs(window.orientation) === 90) {
-      if ( isMobile ) {
+    if (!is_iPad && isMobile) {
+      // This is a bandaid to change the submenu right arrows
+      if ((is_iPad && !Math.abs(window.orientation) === 90) || !is_iPad) {
+        $('.has-child-arrow').attr('src', '/farmers/img/arrow-right-white.svg').addClass('white-svg');
+      }
 
-        // This is a bandaid to change the submenu right arrows
-        if ((is_iPad && !Math.abs(window.orientation) === 90) || !is_iPad) {
-          $('.has-child-arrow').attr('src', '/farmers/img/arrow-right-white.svg').addClass('white-svg');
+      // This is a hack to change the mobile menu close icon
+      $('.nav-close > img').attr('src', '/farmers/img/close.svg');
+
+      // *********************************
+      // Mobile Nav level 2 click handler
+      // *********************************
+      $('button[aria-controls|=megamenu]').click(function(e){
+        console.log(e);
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).attr('aria-expanded', 'true');
+        var submenu_clone = $(this).parent().find('.nav-submenu').clone();
+
+        if (!!$('.nav-inner.mobile-nav-lvl-3').length) {
+
+          submenu_clone.attr('aria-hidden', "false");
+          $(this).parent().find('.nav-submenu').remove();
+          $('.nav-inner.mobile-nav-lvl-3').append(submenu_clone);
+
+        } else {
+          $(this).parent().find('.nav-submenu').attr('aria-hidden', "true");
+          var parent_menu = $(this).parent().parent().parent().clone();
+
+          $(this).parent().find('.nav-submenu').remove();
+          parent_menu.find('.utility-nav, .primary-nav, .search, .callout-button').remove();
+          parent_menu.addClass('mobile-nav-lvl-3');
+          parent_menu.prepend('<span>Back</span>');
+          submenu_clone.attr('aria-hidden', "false");
+          parent_menu.append(submenu_clone);
+          $('nav.nav.is-visible').append(parent_menu);
+        }
+        if (!!$('.nav-inner.mobile-nav-lvl-4').length) {
+          $(this).parent().parent().parent().css('margin-left', '3rem');
+        } else {
+          $(this).parent().parent().parent().css('margin-left', '-24rem');
         }
 
-        // This is a hack to change the mobile menu close icon
-        $('.nav-close > img').attr('src', '/farmers/img/close.svg');
+        // $(e.target).trigger(e.type);
+      })
 
-        // *********************************
-        // Mobile Nav level 2 click handler
-        // *********************************
-        $('button[aria-controls|=megamenu]').click(function(e){
-          console.log(e);
-          e.stopPropagation();
+      // *********************************
+      // Mobile Nav level 3 click handler
+      // *********************************
+      $(document).on('click', '.nav-submenu li, .nav-submenu li a',function(e){
+        if (!!$(this).find('.nav-submenu-submenu').length) {
           e.preventDefault();
-          $(this).attr('aria-expanded', 'true');
-          var submenu_clone = $(this).parent().find('.nav-submenu').clone();
+          e.stopPropagation();
+          $('.nav').addClass('is-visible');
+          $('.overlay').addClass('is-visible');
 
-          if (!!$('.nav-inner.mobile-nav-lvl-3').length) {
-
-            submenu_clone.attr('aria-hidden', "false");
-            $(this).parent().find('.nav-submenu').remove();
-            $('.nav-inner.mobile-nav-lvl-3').append(submenu_clone);
-
-          } else {
-            $(this).parent().find('.nav-submenu').attr('aria-hidden', "true");
-            var parent_menu = $(this).parent().parent().parent().clone();
-
-            $(this).parent().find('.nav-submenu').remove();
-            parent_menu.find('.utility-nav, .primary-nav, .search, .callout-button').remove();
-            parent_menu.addClass('mobile-nav-lvl-3');
-            parent_menu.prepend('<span>Back</span>');
-            submenu_clone.attr('aria-hidden', "false");
-            parent_menu.append(submenu_clone);
-            $('nav.nav.is-visible').append(parent_menu);
-          }
           if (!!$('.nav-inner.mobile-nav-lvl-4').length) {
-            $(this).parent().parent().parent().css('margin-left', '3rem');
+            $('.nav-inner.mobile-nav-lvl-4').find('.nav-submenu-submenu').remove();
+            var submenu_submenu = $(this).find('.nav-submenu-submenu').clone();
+            submenu_submenu.show();
+            $('.nav-inner.mobile-nav-lvl-4').append(submenu_submenu);
           } else {
-            $(this).parent().parent().parent().css('margin-left', '-24rem');
+            var submenu_clone = $(this).parent().parent().clone();
+            submenu_clone.find('.nav-submenu').remove();
+            var submenu_submenu = $(this).find('.nav-submenu-submenu').clone();
+            submenu_submenu.show();
+            submenu_clone.append(submenu_submenu);
+            submenu_clone.removeClass('mobile-nav-lvl-3').addClass('mobile-nav-lvl-4');
+            $('nav.nav.is-visible').append(submenu_clone);
           }
 
-          // $(e.target).trigger(e.type);
-        })
+          $('.nav-inner').first().css('margin-left', '-53rem');
+        }
+      });
 
-        // *********************************
-        // Mobile Nav level 3 click handler
-        // *********************************
-        $(document).on('click', '.nav-submenu li, .nav-submenu li a',function(e){
-          if (!!$(this).find('.nav-submenu-submenu').length) {
-            e.preventDefault();
-            e.stopPropagation();
-            $('.nav').addClass('is-visible');
-            $('.overlay').addClass('is-visible');
+      // *********************************
+      // Level 3 back button click handler
+      // *********************************
+      $(document).on('click', '.nav-inner.mobile-nav-lvl-3 > span', function(e){
+        $('.nav-inner button[aria-expanded="true"]').find('.nav-submenu').remove();
+        var submenu_clone = $(e.target).parent().find('.nav-submenu');
+        submenu_clone.attr('aria-hidden', 'true');
+        $('.nav-inner button[aria-expanded="true"]').append(submenu_clone);
 
-            if (!!$('.nav-inner.mobile-nav-lvl-4').length) {
-              $('.nav-inner.mobile-nav-lvl-4').find('.nav-submenu-submenu').remove();
-              var submenu_submenu = $(this).find('.nav-submenu-submenu').clone();
-              submenu_submenu.show();
-              $('.nav-inner.mobile-nav-lvl-4').append(submenu_submenu);
-            } else {
-              var submenu_clone = $(this).parent().parent().clone();
-              submenu_clone.find('.nav-submenu').remove();
-              var submenu_submenu = $(this).find('.nav-submenu-submenu').clone();
-              submenu_submenu.show();
-              submenu_clone.append(submenu_submenu);
-              submenu_clone.removeClass('mobile-nav-lvl-3').addClass('mobile-nav-lvl-4');
-              $('nav.nav.is-visible').append(submenu_clone);
-            }
+        $('.nav-inner button[aria-expanded="true"]').attr('aria-expanded', 'false');
+        if (!!$('.nav-inner.mobile-nav-lvl-4').length) {
+          $('.nav-inner').first().css('margin-left', '59rem');
+        } else {
+          $('.nav-inner').first().css('margin-left', '31rem');
+        }
+      })
 
-            $('.nav-inner').first().css('margin-left', '-53rem');
-          }
-        });
+      // *********************************
+      // Level 4 back button click handler
+      // *********************************
+      $(document).on('click', '.nav-inner.mobile-nav-lvl-4 > span', function(e){
+        $('.nav-inner').first().css('margin-left', '3rem');
+      })
 
-        // *********************************
-        // Level 3 back button click handler
-        // *********************************
-        $(document).on('click', '.nav-inner.mobile-nav-lvl-3 > span', function(e){
-          console.log(e.target);
-          $('.nav-inner button[aria-expanded="true"]').find('.nav-submenu').remove();
-          var submenu_clone = $(e.target).parent().find('.nav-submenu');
-          submenu_clone.attr('aria-hidden', 'true');
-          $('.nav-inner button[aria-expanded="true"]').append(submenu_clone);
+      // *********************************
+      // 'X' button click handler
+      // *********************************
+      $(document).on('click', '.menu-btn', function(e){
+        // $('.mobile_nav-active').removeClass('mobile_nav-active');
+        // $('.overlay').removeClass('is-visible');
+        $('.nav').addClass('is-visible');
+      })
 
-          $('.nav-inner button[aria-expanded="true"]').attr('aria-expanded', 'false');
-          if (!!$('.nav-inner.mobile-nav-lvl-4').length) {
-            $('.nav-inner').first().css('margin-left', '59rem');
-          } else {
-            $('.nav-inner').first().css('margin-left', '31rem');
-          }
-        })
-
-        // *********************************
-        // Level 4 back button click handler
-        // *********************************
-        $(document).on('click', '.nav-inner.mobile-nav-lvl-4 > span', function(e){
-          $('.nav-inner').first().css('margin-left', '3rem');
-        })
-
-        // *********************************
-        // 'X' button click handler
-        // *********************************
-        $(document).on('click', '.nav-close', function(e){
-          $('.mobile_nav-active').removeClass('mobile_nav-active');
-          $('.overlay').removeClass('is-visible');
-          $('.nav').removeClass('is-visible');
-        })
-      }
+      $(document).on('click', '.nav-close', function(e){
+        // $('.mobile_nav-active').removeClass('mobile_nav-active');
+        // $('.overlay').removeClass('is-visible');
+        $('.nav').removeClass('is-visible');
+      })
     }
   });
 });
