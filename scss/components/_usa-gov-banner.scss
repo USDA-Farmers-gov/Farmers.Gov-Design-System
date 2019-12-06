@@ -17,10 +17,6 @@
     padding-top: 0;
     padding-bottom: 0;
     position: relative;
-
-    & + .container {
-      display: none;
-    }
   }
   .usa-banner-header-expanded {
     border-bottom: none;
@@ -100,6 +96,8 @@
   }
   .usa-media_block-body {
     display: table;
+    line-height: 2rem;
+    padding-bottom: 1rem;
   }
   .usa-banner-icon {
     width: 3.8rem;
@@ -107,7 +105,7 @@
   .usa-banner-content {
     padding-right: 1.5rem;
     padding-bottom: 3px;
-    padding-left: 1.5rem;
+    padding-left: 2.7rem;
     background-color: transparent;
     font-size: 1.5rem;
     padding-top: 4rem;
