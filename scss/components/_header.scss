@@ -1,4 +1,5 @@
 .callout-button {
+  background: #fff;
   height: 48px;
   vertical-align: middle;
   border-radius: 0 0 2px 2px;
@@ -32,16 +33,16 @@
       position: relative;
       transform: rotate(-45deg);
       -webkit-transform: rotate(-45deg);
-    }
+    }    
   }
 }
 
 // Search field in header
 #search-field {
-  display: flex;
+  display: inline-flex;
   margin-bottom: 0;
-  background-color: #006546;
-
+  position: relative;
+  background-color: $heritage;
   form.search {
     margin: 1.5rem 2rem;
   }
@@ -64,7 +65,7 @@
     line-height: 22px;
   }
   [type="submit"] {
-    background-image: image('search.svg');
+    background-image: url(../images/search.svg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-color: $grey1;
@@ -83,113 +84,9 @@
   }
   div[role="search"] {
     max-width: 21.6rem;
-    display: flex;
     .usa-sr-only {
       position: absolute;
       left: -999em;
-    }
-  }
-}
-
-.main-header {
-  .skip-nav {
-    background: 0 0;
-    color: $asphalt;
-    left: 0;
-    padding: 1rem 1.5rem;
-    position: absolute;
-    top: -4.2rem;
-    transition: all .2s ease-in-out;
-    z-index: 100;
-  }
-  .header-inner-wrap {
-    position: relative;
-    height: 80px;
-    padding-top: 1.5rem;
-
-    & > div {
-      display: flex;
-      justify-content: space-between;
-
-      .agency-banner {
-        margin-left: 0;
-        display: flex;
-      }
-    }
-
-    .callout-button {
-      position: absolute;
-      right: 20px;
-      top: -20px;
-      z-index: 1;
-      background-color: $white;
-    }
-  }
-}
-
-.utility-nav {
-  display: flex;
-
-  .utility-nav-links {
-    margin-top: 3.2rem;
-    margin-right: 1.3rem;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: space-around;
-  }
-}
-
-.agency-banner {
-  display: inline-block;
-  margin-left: 2.4rem;
-  a.agency-logo-text {
-    text-decoration: none;
-    color: $asphalt;
-    &:hover {
-      color: $asphalt;
-      text-shadow: 0 0 0;
-    }
-  }
-  img {
-    height: 45px;
-  }
-  .agency-logo {
-    float: left;
-    margin-right: 12px;
-  }
-}
-
-.agency-identity {
-  .agency-name {
-    float: left;
-    font-size: 2rem;
-    font-weight: 500;
-  }
-  .tagline {
-    float: left;
-    font-weight: 200;
-    text-transform: uppercase;
-    font-size: 1.35rem;
-    margin-top: 4px;
-  }
-}
-
-.primary-nav-wrap {
-  background: $heritage;
-  height: 64px;
-  position: relative;
-
-  & > .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-  }
-
-  #search-field {
-
-    form.search {
-      margin: 0;
     }
   }
 }

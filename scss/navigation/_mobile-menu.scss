@@ -1,0 +1,181 @@
+.menu-btn {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .menu-btn {
+    display: inline-block;
+    background-color: $heritage;
+    color: #fff;
+    border: none;
+  }
+  .nav {
+    display: none;
+      background: $heritage;
+      width: 26rem;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: auto;
+      height: 100%;
+      z-index: 100;
+    &.is-visible {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      overflow: hidden;
+
+    }
+    .nav-inner {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: relative;
+      transition: .25s ease-in-out;
+      margin: 0 3rem;
+      padding: 0;
+      margin-top: 2rem;
+
+      .callout-button {
+        order: 3;
+        box-shadow: none;
+      }
+
+      .nav-close {
+        border: none;
+        background: url('../images/close-white.svg');
+        background-position: right top;
+        background-repeat: no-repeat;
+        align-self: flex-end;
+        height: 1.8rem;
+        width: 1.8rem;
+        // top: -1.7rem;
+        // right: -1.6rem;
+      }
+
+      .search-field {
+        order: 1;
+        padding: 0 1rem 0 0.25rem;
+        // margin-top: 6rem;
+      }
+
+      .utility-nav {
+        order: 4;
+        .utility-nav-links {
+          display:flex;
+          flex-direction: column;
+
+          li {
+            padding-left: 0;
+            a {
+              color: #fff;
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      .primary-nav {
+        order: 2;
+        li {
+          display: block;
+          border-bottom: 1px solid #49A564;
+          border-top: none;
+
+          &:last-child {
+            border: none;
+          }
+        }
+        button {
+          width: 100%;
+          background-image: url(../images/arrow-right-white.svg);
+          background-size: 0.7rem;
+          background-position: right center;
+          background-repeat: no-repeat;
+          &[aria-controls|=megamenu] span{
+            background-image: none;
+          }
+        }
+
+        .nav-link {
+          padding-left: 0;
+        }
+      }
+
+      &.mobile-nav-lvl-3, &.mobile-nav-lvl-4 {
+        width: 100%;
+        position: relative;
+        transition: .25s ease-in-out;
+        color: #ffffff;
+
+        &>span {
+          margin: 3.4rem 0 0 0;
+          padding: 1rem 2rem;
+          border-bottom: 1px solid #49A564;
+          background-image: url(../images/arrow-left-white.svg);
+          background-repeat: no-repeat;
+          background-position: left center;
+          cursor: pointer;
+        }
+
+        .nav-submenu {
+          li:first-child {
+            text-transform: uppercase;
+          }
+        }
+
+        .nav-submenu, .nav-submenu-submenu {
+          margin-top: 3rem;
+          display: flex;
+          flex-direction: column;
+          list-style-type: none;
+          padding: 0;
+
+          li {
+            margin-bottom: 2rem;
+
+            a {
+              color: #ffffff;
+              padding-left: 0rem;
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+
+              .has-child-arrow.white-svg {
+                width: .7rem;
+                position: absolute;
+                right: 0;
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  .nav {
+    .nav-inner {
+      .primary-nav {
+        .nav-link {
+          padding-left: 3rem;
+        }
+
+        button {
+          background: none;
+        }
+
+        .usa-accordion-button.nav-link[aria-controls|=megamenu] span {
+            background: url(../images/arrow-down-white.svg) no-repeat;
+            background-position: right;
+            background-size: 1rem;
+            font-size: 1.8rem;
+            padding-right: 2.1rem;
+        }
+      }
+    }
+  }
+}
