@@ -1,0 +1,67 @@
+/***** COLORS *****/
+$heritage: #006546;
+$dkgreen: $heritage;
+$sweetgrass: #49A564;
+$ltgreen: $sweetgrass;
+$bigsky: #1A6AD3;
+$blue: $bigsky;
+$black: #212121;
+$asphalt: $black;
+$white: #ffffff;
+
+// COLORS // Secondary Colors 
+$dkblue: #004785;
+$usda-blue: $dkblue;
+$yellow: #F7BE00;
+$dandelion: $yellow;
+$red: #AE2924;
+$maple: $red;
+
+// COLORS // Low Saturation Colors
+$softgreen: #DBEDE0;
+$softyellow: #F8EDC7;
+$softred: #EEDAD9;
+$grey1: #F7F7F7;
+$gray1: $grey1;
+$grey2: #EDEDED;
+$gray2: $grey2;
+$grey3: #BBBBBB;
+$gray3: $grey3;
+$grey4: #707070;
+$gray4: $grey4;
+$grey5: #494440;
+$gray5: $grey5;
+
+// COLORS // Links
+$visited: #4C2C92;
+$focus: #1B69D3;
+$hover: #004785;
+$active: #122E51;
+$disabled: #BBBBBB;
+
+/***** TYPOGRAPHY *****/
+$merriweather: 'Merriweather';
+$public-sans: 'Public Sans';
+
+/***** GRID *****/
+$grid__columns: 12;
+$grid__gutter:  20px;
+
+$name--X: xs-;
+$name--S: small-;
+$name--M: medium-;
+$name--L: large-;
+$name--XL: xlarge-;
+
+$break--S:  480px;
+$break--M:  768px;
+$break--L:  1140px;
+$break--XL: 1440px;
+
+$screen--S:  $break--S + 1;
+$screen--M:  $break--M + 1;
+$screen--L:  $break--L + 1;
+$screen--XL: $break--XL + 1;
+
+// Set the main container with for the grid. This is applied to .container
+$container_width: 1080px;
