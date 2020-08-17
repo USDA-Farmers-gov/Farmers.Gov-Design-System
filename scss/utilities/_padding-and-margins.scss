@@ -1,0 +1,88 @@
+@import "utilities-functions";
+
+$rems: "0", " 0.25 ", " 0.5 ", " 0.75 ", " 1 ", " 1.25 ", " 1.5 ", " 1.75", "2",
+  "2.25", " 2.5 ", " 2.75", "3", "4", "5", "6", "8", "10", "12", "14", "16";
+
+// padding
+@each $rem in $rems {
+  .p-#{remove-periods($rem)} {
+    padding: #{remove-whitespace($rem)}rem;
+  }
+}
+@each $rem in $rems {
+  .pt-#{remove-periods($rem)} {
+    padding-top: #{remove-whitespace($rem)}rem;
+    @include mobile-padding-top;
+  }
+}
+@each $rem in $rems {
+  .pb-#{remove-periods($rem)} {
+    padding-bottom: #{remove-whitespace($rem)}rem;
+    @include mobile-padding-bottom;
+  }
+}
+@each $rem in $rems {
+  .pl-#{remove-periods($rem)} {
+    padding-left: #{remove-whitespace($rem)}rem;
+    @include mobile-padding-left;
+  }
+}
+@each $rem in $rems {
+  .pr-#{remove-periods($rem)} {
+    padding-right: #{remove-whitespace($rem)}rem;
+    @include mobile-padding-right;
+  }
+}
+@each $rem in $rems {
+  .px-#{remove-periods($rem)} {
+    padding-left: #{remove-whitespace($rem)}rem;
+    padding-right: #{remove-whitespace($rem)}rem;
+    @include mobile-padding-x;
+  }
+}
+@each $rem in $rems {
+  .py-#{remove-periods($rem)} {
+    padding-top: #{remove-whitespace($rem)}rem;
+    padding-bottom: #{remove-whitespace($rem)}rem;
+    @include mobile-padding-y;
+  }
+}
+
+// margins
+@each $rem in $rems {
+  .m-#{remove-periods($rem)} {
+    margin: #{remove-whitespace($rem)}rem;
+  }
+}
+@each $rem in $rems {
+  .mt-#{remove-periods($rem)} {
+    margin-top: #{remove-whitespace($rem)}rem;
+  }
+}
+@each $rem in $rems {
+  .mb-#{remove-periods($rem)} {
+    margin-bottom: #{remove-whitespace($rem)}rem;
+  }
+}
+@each $rem in $rems {
+  .ml-#{remove-periods($rem)} {
+    margin-left: #{remove-whitespace($rem)}rem;
+  }
+}
+@each $rem in $rems {
+  .mr-#{remove-periods($rem)} {
+    margin-right: #{remove-whitespace($rem)}rem;
+  }
+}
+@each $rem in $rems {
+  .mx-#{remove-periods($rem)} {
+    margin-left: #{remove-whitespace($rem)}rem;
+    margin-right: #{remove-whitespace($rem)}rem;
+  }
+}
+@each $rem in $rems {
+  .my-#{remove-periods($rem)} {
+    margin-top: #{remove-whitespace($rem)}rem;
+    margin-bottom: #{remove-whitespace($rem)}rem;
+  }
+}

@@ -1,7 +1,45 @@
-@mixin mobile-mix($device, $orientation: portrait){
-  @if $device == 'iPhone' {
-    @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : $orientation) {
+@mixin mobile-mix($device, $orientation: portrait) {
+  @if $device == "iPhone" {
+    @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation: $orientation) {
       @content;
     }
+  }
+}
+
+@mixin mobile-padding-top {
+  @media (max-width: $screen--S) {
+    padding-top: 0;
+  }
+}
+
+@mixin mobile-padding-bottom {
+  @media (max-width: $screen--S) {
+    padding-bottom: 0;
+  }
+}
+
+@mixin mobile-padding-left {
+  @media (max-width: $screen--S) {
+    padding-left: 0;
+  }
+}
+
+@mixin mobile-padding-right {
+  @media (max-width: $screen--S) {
+    padding-right: 0;
+  }
+}
+
+@mixin mobile-padding-x {
+  @media (max-width: $screen--S) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@mixin mobile-padding-y {
+  @media (max-width: $screen--S) {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }

@@ -4,18 +4,22 @@
 // Path-er
 @import "path-helper";
 
+// Flexbox Grid
+@import "grid/styles";
+
 // Mixins
 @import "mixins";
 
 // Colors
 @import "elements/colors";
 
+// Utilties
+@import "utilities/utilities";
+
 // Typography
+@import "elements/arrows";
 @import "elements/typography";
 @import "elements/lists";
-
-// Flexbox Grid
-@import "grid/styles";
 
 // Components
 @import "components/alerts";
@@ -44,6 +48,7 @@
 
 // Navigation
 @import "navigation/main-menu";
+@import "navigation/side-menu";
 @import "navigation/mobile-menu";
 @import "navigation/mega-menu";
 @import "navigation/utility";
