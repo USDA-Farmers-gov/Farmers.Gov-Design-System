@@ -1,3 +1,14 @@
+%mega-menu-link {
+  display: block;
+  color: $heritage;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 1rem;
+  margin: 1rem;
+  text-decoration: none;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+}
 .nav-mega-menu {
   .mega-menu-header {
     justify-content: space-between;
@@ -11,15 +22,7 @@
   }
   .mega-menu-links {
     a {
-      display: block;
-      color: $heritage;
-      font-size: 1.4rem;
-      font-weight: 700;
-      padding: 1rem;
-      margin: 1rem;
-      text-decoration: none;
-      line-height: 2rem;
-      margin-bottom: 1rem;
+      @extend %mega-menu-link;
       &:hover {
         text-decoration: none;
         text-shadow: none;
@@ -44,14 +47,10 @@
   .mega-menu-featured {
     display: flex;
     flex-direction: column;
-    @extend .mega-menu-links;
     a {
+      @extend %mega-menu-link;
+      padding: 1rem 0 1rem 0;
       margin: 0;
-      padding: 0;
-      &:hover {
-        background: transparent;
-        text-decoration: underline;
-      }
     }
     background: $grey1;
     .mega-menu-featured-title {
@@ -78,7 +77,7 @@
           border-radius: 50%;
           background: $asphalt;
           display: inline-block;
-          margin: 0.5rem 1rem 0 0;
+          margin: 1.7rem 1rem 0 0;
         }
       }
     }
