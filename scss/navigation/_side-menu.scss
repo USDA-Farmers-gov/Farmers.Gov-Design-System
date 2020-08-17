@@ -1,3 +1,12 @@
+%active-link {
+  background: $softgreen;
+  border-left: 0.4rem $softgreen solid;
+  overflow: hidden;
+  color: $asphalt;
+  text-shadow: none;
+  -webkit-text-stroke: unset;
+}
+
 ul.sidemenu {
   list-style-type: none;
   padding-left: 0;
@@ -19,16 +28,17 @@ ul.sidemenu {
         margin-top: 1rem;
         margin-left: auto;
       }
+      &.active,
+      &.active:hover {
+        @extend %active-link;
+        border-left: 0.4rem $heritage solid;
+      }
     }
 
     a:hover,
     a:visited:hover {
-      background: $softgreen;
+      @extend %active-link;
       border-left: 0.4rem $softgreen solid;
-      overflow: hidden;
-      color: $asphalt;
-      text-shadow: none;
-      -webkit-text-stroke: unset;
     }
   }
 }
