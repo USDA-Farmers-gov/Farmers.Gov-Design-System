@@ -13,9 +13,12 @@ ul.sidemenu {
   li {
     font-size: 1.6rem;
     font-weight: 700;
-    width: 100%;
+    width: 94%;
+    margin-left: 1.8rem;
     a {
+      text-transform: initial;
       width: 100%;
+      padding-left: 1.5rem !important;
     }
     a,
     a:visited {

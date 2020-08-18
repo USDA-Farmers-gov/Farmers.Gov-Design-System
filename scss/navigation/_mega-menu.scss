@@ -12,9 +12,9 @@
   flex-direction: column;
   background: $white;
   z-index: 100;
-  max-width: 120% !important;
+  min-width: 1145px;
   top: 6.5rem;
-  left: -1rem;
+  left: -3rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
   .nav-mega-menu-header {
     justify-content: space-between;
@@ -71,8 +71,9 @@
       line-height: 2rem;
     }
     img.nav-mega-menu-featured-image {
-      flex: 0 0 auto;
+      flex: 1 1 auto;
       max-width: 28.4rem;
+      height: 1vh;
     }
     ul.nav-mega-menu-featured-links {
       list-style: none;
@@ -83,11 +84,11 @@
       li {
         display: flex;
         text-transform: initial;
+        line-height: 2rem;
         a {
           color: $heritage;
           border-bottom: none;
           font-size: 1.4rem;
-          line-height: 2rem;
         }
         &:before {
           content: "\A";
