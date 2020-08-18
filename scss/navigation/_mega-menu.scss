@@ -1,16 +1,22 @@
-%mega-menu-link {
+%nav-mega-menu-link {
   display: block;
   color: $heritage;
   font-size: 1.4rem;
   font-weight: 700;
-  padding: 1rem;
-  margin: 1rem;
   text-decoration: none;
   line-height: 2rem;
-  margin-bottom: 1rem;
 }
 .nav-mega-menu {
-  .mega-menu-header {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  background: $white;
+  z-index: 100;
+  max-width: 120% !important;
+  top: 6.5rem;
+  left: -1rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  .nav-mega-menu-header {
     justify-content: space-between;
     width: 100%;
     border-bottom: 1px solid $grey3;
@@ -20,9 +26,12 @@
     padding-top: 1rem;
     border-right: 1px solid $grey3;
   }
-  .mega-menu-links {
+  .nav-mega-menu-links {
+    text-transform: initial;
     a {
-      @extend %mega-menu-link;
+      @extend %nav-mega-menu-link;
+      padding: 1rem;
+      margin: 1rem;
       &:hover {
         text-decoration: none;
         text-shadow: none;
@@ -34,41 +43,49 @@
       }
     }
   }
-  .mega-menu-link-description {
+  .nav-mega-menu-link-description {
     font-size: 1.4rem;
     line-height: 2.2rem;
     font-weight: 400;
     color: $asphalt;
     p {
-      @extend .mega-menu-link-description;
+      @extend .nav-mega-menu-link-description;
       margin: 0;
     }
   }
-  .mega-menu-featured {
+  .nav-mega-menu-featured {
     display: flex;
     flex-direction: column;
+    text-transform: initial;
     a {
-      @extend %mega-menu-link;
+      @extend %nav-mega-menu-link;
       padding: 1rem 0 1rem 0;
-      margin: 0;
     }
     background: $grey1;
-    .mega-menu-featured-title {
+    .nav-mega-menu-featured-title {
       font-size: 1.6rem;
       font-weight: 700;
       line-height: 2rem;
     }
-    img.mega-menu-featured-image {
+    img.nav-mega-menu-featured-image {
       flex: 0 0 auto;
       max-width: 28.4rem;
     }
-    ul.mega-menu-featured-links {
+    ul.nav-mega-menu-featured-links {
       list-style: none;
       padding-left: 0;
       margin-top: auto;
       margin-bottom: 3.2rem;
+
       li {
         display: flex;
+        text-transform: initial;
+        a {
+          color: $heritage;
+          border-bottom: none;
+          font-size: 1.4rem;
+          line-height: 2rem;
+        }
         &:before {
           content: "\A";
           flex: 0 0 auto;

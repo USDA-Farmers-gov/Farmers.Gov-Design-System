@@ -10,6 +10,13 @@
   align-items: center;
   justify-content: center;
 
+  > li:first-child {
+    border-top: none;
+  }
+  > li:not(:first-child) {
+    border-left: 1px solid #238353;
+  }
+
   li {
     background-color: transparent;
     display: inline-block;
@@ -23,14 +30,8 @@
     // Add styles specific to the first link in the menu
     &:first-of-type {
       a {
-          padding-left: 0;
+        padding-left: 0;
       }
-    }
-    &:first-child {
-      border-top: none;
-    }
-    &:not(:first-child) {
-      border-left: 1px solid #238353;
     }
     .nav-link {
       border: none;
@@ -45,22 +46,26 @@
       span {
         padding-bottom: 2px;
       }
-      &:focus, &.focus {
+      &:focus,
+      &.focus {
         outline-width: 0px;
         outline-offset: 3px;
         outline-color: $focus;
         box-shadow: 0px 0px 4px $focus;
       }
-      &:hover, &.hover {
+      &:hover,
+      &.hover {
         text-shadow: #fff0 !important;
         -webkit-text-stroke: #fff0 !important;
         span {
           border-bottom: 4px solid #fff;
         }
       }
-      &:visited, &.visited {
+      &:visited,
+      &.visited {
         color: #fff;
-        &:hover, &.hover {
+        &:hover,
+        &.hover {
           text-shadow: #fff0 !important;
           -webkit-text-stroke: #fff0 !important;
         }
@@ -77,7 +82,7 @@
       }
 
       & .nav-arrow {
-        background-image: image('arrow-down-white.svg');
+        background-image: image("arrow-down-white.svg");
         background-repeat: no-repeat;
         background-size: 1.4rem;
         background-position: center;
@@ -85,15 +90,15 @@
         height: 1.8rem;
         display: flex;
         margin-left: 0.4rem;
-
       }
 
-      &:hover, &.submenu-item-active {
+      &:hover,
+      &.submenu-item-active {
         cursor: pointer;
 
         & > span {
           border-bottom: none;
-          box-shadow: 0 .35rem 0 #fff;
+          box-shadow: 0 0.35rem 0 #fff;
         }
         & span.nav-arrow {
           border-bottom: none;
@@ -102,11 +107,11 @@
 
       &[aria-expanded="true"] {
         .nav-arrow {
-          background-image: image('arrow-up-white.svg');
+          background-image: image("arrow-up-white.svg");
         }
       }
 
-      & + .nav-submenu {
+      & + .nav-submenu:not(.nav-mega-menu) {
         display: none;
         position: absolute;
         top: 6.4rem;
@@ -115,10 +120,10 @@
         background: #ddd;
         justify-content: center;
         flex-direction: column;
-        padding: .5rem 0;
-        margin-top: .5rem;
-        background-color: #FFFFFF;
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+        padding: 0.5rem 0;
+        margin-top: 0.5rem;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 
         li {
           padding: 1rem 0;
@@ -127,10 +132,11 @@
           text-transform: none;
           border-left: 0;
 
-          &:hover, &.submenu-item-active {
+          &:hover,
+          &.submenu-item-active {
             cursor: pointer;
             text-decoration: underline;
-            background-color: rgba(73,165,100,0.2);
+            background-color: rgba(73, 165, 100, 0.2);
             border-left: 0.6rem solid $heritage;
 
             a {
@@ -138,7 +144,6 @@
               text-shadow: none !important;
               margin-left: 1.4rem;
             }
-
           }
 
           &:first-child {
@@ -148,7 +153,7 @@
             & > a {
               display: flex;
               align-items: center;
-              border-bottom: 1px solid #BBBBBB;
+              border-bottom: 1px solid #bbbbbb;
 
               &:hover {
                 -webkit-text-stroke: 0 !important;
@@ -161,7 +166,6 @@
                 font-size: 1.6rem;
                 color: $heritage;
               }
-
             }
 
             &:hover {
@@ -173,22 +177,20 @@
                 }
               }
             }
-
           }
-
 
           a {
             color: #212121;
             font-size: 16px;
             line-height: 18px;
-            padding: .5rem;
+            padding: 0.5rem;
             width: 85%;
             text-decoration: none;
             margin: 0 2rem;
           }
 
           &.has-submenu {
-            background-image: image('arrow-right.svg');
+            background-image: image("arrow-right.svg");
             background-repeat: no-repeat;
             background-size: 1rem;
             background-position: 93% center;
@@ -210,11 +212,11 @@
             width: 100%;
             justify-content: center;
             flex-direction: column;
-            padding: .5rem 0;
+            padding: 0.5rem 0;
             left: 26rem;
             margin-top: -3.2rem;
-            background-color: #FFFFFF;
-            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 
             li {
               a {
@@ -229,42 +231,39 @@
               }
 
               &:first-child {
-                  padding: 0;
-                  text-transform: none;
+                padding: 0;
+                text-transform: none;
 
-                  & > a {
-                    display: block;
-                    border-bottom: none;
-
-                    &:hover {
-                      -webkit-text-stroke: 0 !important;
-                      text-shadow: none !important;
-                    }
-
-                    span {
-                      font-weight: normal;
-                      line-height: 2.4rem;
-                      font-size: 1.6rem;
-                      color: #212121;
-                    }
-
-                  }
+                & > a {
+                  display: block;
+                  border-bottom: none;
 
                   &:hover {
-                    text-decoration: underline;
-                    & > a {
-                      & > span {
-                        text-shadow: none !important;
-                        -webkit-text-stroke: 0 !important;
-                      }
-                    }
+                    -webkit-text-stroke: 0 !important;
+                    text-shadow: none !important;
                   }
 
+                  span {
+                    font-weight: normal;
+                    line-height: 2.4rem;
+                    font-size: 1.6rem;
+                    color: #212121;
+                  }
+                }
+
+                &:hover {
+                  text-decoration: underline;
+                  & > a {
+                    & > span {
+                      text-shadow: none !important;
+                      -webkit-text-stroke: 0 !important;
+                    }
+                  }
+                }
               }
             }
           }
         }
-
       }
 
       &.submenu-item-active {
