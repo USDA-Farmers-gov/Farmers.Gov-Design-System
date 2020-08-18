@@ -16,7 +16,12 @@
   > li:not(:first-child) {
     border-left: 1px solid #238353;
   }
-
+  // Add styles specific to the first link in the menu
+  > li:first-of-type {
+    a {
+      padding-left: 0;
+    }
+  }
   li {
     background-color: transparent;
     display: inline-block;
@@ -27,12 +32,6 @@
     padding-left: 0;
     order: 2;
     text-transform: uppercase;
-    // Add styles specific to the first link in the menu
-    &:first-of-type {
-      a {
-        padding-left: 0;
-      }
-    }
     .nav-link {
       border: none;
       padding: 0.3rem 2.5rem;

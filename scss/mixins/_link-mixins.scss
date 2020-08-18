@@ -1,0 +1,4 @@
+@mixin primary-hover {
+  text-shadow: 0 0 0.08rem $heritage;
+  -webkit-text-stroke: 1px $heritage;
+}

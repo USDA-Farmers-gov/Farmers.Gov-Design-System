@@ -8,13 +8,10 @@
 @import "grid/styles";
 
 // Mixins
-@import "mixins";
+@import "mixins/mixins";
 
 // Colors
 @import "elements/colors";
-
-// Utilties
-@import "utilities/utilities";
 
 // Typography
 @import "elements/arrows";
@@ -52,3 +49,6 @@
 @import "navigation/mobile-menu";
 @import "navigation/mega-menu";
 @import "navigation/utility";
+
+// Utilties
+@import "utilities/utilities";
