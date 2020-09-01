@@ -8,11 +8,8 @@
     // Prevent columns from collapsing when empty
     min-height: 1px;
     // Inner gutter via padding
-    // padding-left: ($_gutter / 2);
-    padding-right: $_gutter;
-    @media (max-width: $screen--S) {
-        padding-right: 0;
-    }
+    padding-left: ($_gutter / 2);
+    padding-right: ($_gutter / 2);
 }
 
 //  Centered container element

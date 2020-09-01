@@ -2,3 +2,8 @@
   text-shadow: 0 0 0.08rem $heritage;
   -webkit-text-stroke: 1px $heritage;
 }
+@mixin underline-hover {
+  text-shadow: none;
+  -webkit-text-stroke: unset;
+  text-decoration: underline;
+}
