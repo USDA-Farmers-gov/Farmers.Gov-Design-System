@@ -12,9 +12,9 @@
   flex-direction: column;
   background: $white;
   z-index: 100;
-  min-width: 1145px;
+  max-width: 1145px;
   top: 6.5rem;
-  left: -3rem;
+  left: 10rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
   .nav-mega-menu-header {
     justify-content: space-between;
@@ -88,6 +88,8 @@
         display: flex;
         flex-direction: column;
         text-transform: initial;
+        padding-left: 3.2rem;
+        padding-right: 3.2rem;
         a {
           @extend %nav-mega-menu-link;
           padding: 1rem 0 1rem 0;
@@ -108,14 +110,14 @@
         }
         img.nav-mega-menu-featured-image {
           flex: 0 0 auto;
-          max-width: 28.4rem;
+          width: 28.4rem;
           height: auto;
         }
         ul.nav-mega-menu-featured-links {
           list-style: none;
           padding-left: 0;
           margin-top: auto;
-          margin-bottom: 3.2rem;
+          margin-bottom: 0.5rem;
 
           li {
             display: flex;
