@@ -1,0 +1,163 @@
+$menu-width: 75vw;
+
+.mega-menu-mobile-primary-nav {
+    // display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    background: #00000094;
+    justify-content: flex-end;
+    cursor: pointer;
+
+    .nav-container {
+        max-width: $menu-width;
+        width: $menu-width;
+        height: 100vh;
+        margin-left: auto;
+        background: $heritage;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        @media (max-width: $screen--S) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .mega-menu-mobile-toc {
+            color: $white;
+            margin-bottom: 3rem;
+            .toc-header {
+                font-size: 1.4rem;
+                line-height: 2rem;
+                margin-top: 2rem;
+            }
+            ul {
+                list-style-type: none;
+                padding-left: 0;
+                li {
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                    a {
+                        text-transform: uppercase;
+                        color: $white;
+                        font-weight: 700;
+                        &:visited {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+        .mobile-nav-content {
+            width: $menu-width;
+            height: fit-content;
+            background: $white;
+
+            .content-section-header {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                background: $heritage;
+                color: $white;
+                border-top: 1px solid rgba(73, 165, 100, 0.5);
+                padding: 2rem;
+                padding-top: 1.8rem;
+                box-shadow: 0 3px 1px -1px #d8d8d8;
+            }
+            .content-section-links {
+                padding: 2rem 2rem 0 2rem;
+                font-size: 1.4rem;
+                line-height: 2rem;
+
+                .section-links-header {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                }
+                ul {
+                    list-style-type: none;
+                    padding-left: 2rem;
+                    padding-bottom: 1rem;
+                    li {
+                        a {
+                            font-size: 1.4rem;
+                            line-height: 2rem;
+                            color: $asphalt;
+                            text-decoration: none;
+                        }
+                    }
+                    border-bottom: 1px solid $grey2;
+                }
+                .single-link {
+                    display: flex;
+                    justify-content: space-between;
+                    color: $asphalt;
+                    text-decoration: none;
+                    font-weight: 700;
+                    padding-top: 1rem;
+                    padding-bottom: 2rem;
+                    border-bottom: 1px solid $grey2;
+                }
+                .btn.tertiary {
+                    margin-top: 2rem;
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+        .mega-menu-mobile-footer {
+            ul {
+                list-style-type: none;
+                padding-left: 0;
+                li {
+                    a {
+                        color: $asphalt;
+                        text-decoration: none;
+                        padding-left: 2rem;
+                        padding-right: 2rem;
+                        font-size: 1.4rem;
+                        line-height: 2.2rem;
+                        &:visited {
+                            color: $asphalt;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #search-field {
+        background: none;
+        margin-top: 1rem;
+        width: 100%;
+        zoom: 0.8;
+
+        form.search {
+            margin: 0;
+            width: 100%;
+
+            div[role="search"] {
+                max-width: 100%;
+                display: flex;
+            }
+        }
+    }
+    .mega-menu-mobile-close {
+        background-image: image("close-white.svg");
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: 13px;
+        height: 16px;
+        width: 67px;
+        display: block;
+        float: right;
+        text-align: left;
+        margin: 1.5rem;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $white;
+    }
+}
