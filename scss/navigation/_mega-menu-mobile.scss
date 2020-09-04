@@ -1,7 +1,7 @@
 $menu-width: 75vw;
 
 .mega-menu-mobile-primary-nav {
-    // display: none;
+    display: none;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -40,7 +40,7 @@ $menu-width: 75vw;
                 padding-left: 0;
                 li {
                     font-size: 1.4rem;
-                    line-height: 2rem;
+                    line-height: 3rem;
                     a {
                         text-transform: uppercase;
                         color: $white;
@@ -132,7 +132,6 @@ $menu-width: 75vw;
         background: none;
         margin-top: 1rem;
         width: 100%;
-        zoom: 0.8;
 
         form.search {
             margin: 0;
@@ -143,6 +142,9 @@ $menu-width: 75vw;
                 display: flex;
             }
         }
+    }
+    .button-placeholder {
+        width: 17.3rem !important;
     }
     .mega-menu-mobile-close {
         background-image: image("close-white.svg");
