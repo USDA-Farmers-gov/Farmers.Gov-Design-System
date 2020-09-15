@@ -245,10 +245,8 @@ window.addEventListener("load", function () {
         for (let i = 0; i < content_links.length; i++)
           content_links[i].setAttribute("tabindex", "0");
 
-        target.querySelector(".card-accordion.show").scrollIntoView({
+        target.scrollIntoView({
           behavior: "smooth",
-          block: "center",
-          inline: "center",
         });
         target.querySelector(".card-accordion-toggle > a").innerHTML =
           "Show Less";
@@ -257,6 +255,9 @@ window.addEventListener("load", function () {
           content_links[i].setAttribute("tabindex", "-1");
         target.querySelector(".card-accordion-toggle > a").innerHTML =
           "Show More";
+        target.scrollIntoView({
+          behavior: "smooth",
+        });
       }
     }
   }

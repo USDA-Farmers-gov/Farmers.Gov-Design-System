@@ -18,6 +18,12 @@
 @import "elements/typography";
 @import "elements/lists";
 
+// Flexbox Grid
+@import "grid/styles";
+
+// Mixins
+@import "mixins/mixins";
+
 // Components
 @import "components/alerts";
 @import "components/links";

@@ -4,17 +4,21 @@ $table-border-color: $grey3;
 $table-border-width: 1px;
 $table-border-style: solid;
 $table-margin-bottom: 1.529411765em;
-$table-cell-padding: 2.4rem;
+$table-cell-padding: 24px;
+$table-cell-padding-left-right: 24px;
+$table-cell-padding-top-bottom: 14px;
 $table-cell-left-right-padding: 2.4rem;
 $table-cell-top-bottom-padding: 2.4rem;
 $table-cell-text-align: left;
-$table-cell-border-top: $table-border-width $table-border-style $table-border-color;
+$table-cell-border-top: $table-border-width $table-border-style
+  $table-border-color;
 $table-header-font-weight: bold;
 $table-header-background-color: $grey2;
 $table-subheader-background-color: $grey1;
-$table-body-border-top: .1rem $table-border-style $table-border-color;
+$table-body-border-top: 0.1rem $table-border-style $table-border-color;
 $table-condensed-padding: 2.4rem;
-$table-bordered-border: $table-border-width $table-border-style $table-border-color;
+$table-bordered-border: $table-border-width $table-border-style
+  $table-border-color;
 $table-bordered-border-radius: 2px;
 $table-border-left: $table-border-width $table-border-style $table-border-color;
 $table-bordered-child-radius: 2px;
@@ -26,11 +30,13 @@ table {
   border-collapse: collapse;
   overflow-x: auto;
   display: inline-block;
-  max-width: 100%;  
+  max-width: 100%;
+  // per design specs FG-3241
+  border-radius: $table-bordered-border-radius;
   caption {
     position: absolute !important;
     clip: rect(1px, 1px, 1px, 1px);
-  } 
+  }
   thead {
     background-color: $table-header-background-color;
     font-weight: $table-header-font-weight;
@@ -39,28 +45,34 @@ table {
       background-color: $table-header-background-color;
       border-top: none;
       td {
-        font-weight: $table-header-font-weight; 
+        font-weight: $table-header-font-weight;
         border-top: none;
         padding: $table-cell-padding;
-        vertical-align: middle;
       }
-    }   
+    }
   }
-  th, td {
-    padding-left: $table-cell-left-right-padding;
-    padding-right: $table-cell-left-right-padding;
-    padding-top: $table-cell-top-bottom-padding;
-    padding-bottom: $table-cell-top-bottom-padding;
+  th,
+  td {
+    padding: $table-cell-padding-top-bottom $table-cell-padding-left-right;
     text-align: $table-cell-text-align;
     border-top: $table-cell-border-top;
     vertical-align: top;
   }
   th {
-    background-color: $table-subheader-background-color;
     font-weight: $table-header-font-weight;
+  }
+  td,
+  th {
+    border: $table-cell-border-top;
+    vertical-align: middle;
   }
   tbody + tbody {
     border-top: $table-body-border-top;
+  }
+  tbody {
+    th {
+      background-color: $table-subheader-background-color;
+    }
   }
 }
 
@@ -78,7 +90,8 @@ table tbody + tbody,
       background-color: $grey1;
     }
   }
-  td, th {
+  td,
+  th {
     border-top: none;
   }
 }

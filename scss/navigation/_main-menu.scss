@@ -32,6 +32,18 @@
     padding-left: 0;
     order: 2;
     text-transform: uppercase;
+    // Add styles specific to the first link in the menu
+    &:first-of-type {
+      a {
+        padding-left: 0;
+      }
+    }
+    &:first-child {
+      border-top: none;
+    }
+    &:not(:first-child) {
+      border-left: 1px solid #238353;
+    }
     .nav-link {
       border: none;
       padding: 0.3rem 2.5rem;
@@ -53,7 +65,8 @@
         box-shadow: 0px 0px 4px $focus;
       }
       &:hover,
-      &.hover {
+      &.hover,
+      &.nav-link-current {
         text-shadow: #fff0 !important;
         -webkit-text-stroke: #fff0 !important;
         span {

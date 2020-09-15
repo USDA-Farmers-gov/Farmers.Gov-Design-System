@@ -13,7 +13,7 @@ $dkgreen: $heritage;
 }
 
 // Sweet Grass
-$sweetgrass: #49A564;
+$sweetgrass: #49a564;
 $ltgreen: $sweetgrass;
 .sweet-grass {
   background-color: $sweetgrass;
@@ -23,7 +23,7 @@ $ltgreen: $sweetgrass;
 }
 
 // Big Sky
-$bigsky: #1A6AD3;
+$bigsky: #1a6ad3;
 $blue: $bigsky;
 .big-sky {
   background-color: $bigsky;
@@ -49,7 +49,7 @@ $white: #ffffff;
 .white-txt {
   color: $white;
 }
-// COLORS // Secondary Colors 
+// COLORS // Secondary Colors
 
 // USDA Blue
 $dkblue: #004785;
@@ -62,7 +62,7 @@ $usda-blue: $dkblue;
 }
 
 // Dandelion
-$yellow: #F7BE00;
+$yellow: #f7be00;
 $dandelion: $yellow;
 .dandelion {
   background-color: $yellow;
@@ -72,7 +72,7 @@ $dandelion: $yellow;
 }
 
 // Maple #AE2924
-$red: #AE2924;
+$red: #ae2924;
 $maple: $red;
 .maple {
   background-color: $red;
@@ -84,19 +84,19 @@ $maple: $red;
 // COLORS // Low Saturation Colors
 
 // Soft Green
-$softgreen: #DBEDE0;
+$softgreen: #dbede0;
 .soft-green {
   background-color: $softgreen;
 }
 
 // Soft Yellow
-$softyellow: #F8EDC7;
+$softyellow: #f8edc7;
 .soft-yellow {
   background-color: $softyellow;
 }
 
 // Soft Red
-$softred: #EEDAD9;
+$softred: #eedad9;
 .soft-red {
   background-color: $softred;
 }
@@ -104,50 +104,55 @@ $softred: #EEDAD9;
 // COLORS // Gray Scale
 
 // Grey 1
-$grey1: #F7F7F7;
+$grey1: #f7f7f7;
 $gray1: $grey1;
-.grey-1, .gray-1 {
+.grey-1,
+.gray-1 {
   background-color: $grey1;
 }
 
 // Grey 2
-$grey2: #EDEDED;
+$grey2: #ededed;
 $gray2: $grey2;
-.grey-2, .gray-2 {
+.grey-2,
+.gray-2 {
   background-color: $grey2;
 }
 
 // Grey 3
-$grey3: #BBBBBB;
+$grey3: #bbbbbb;
 $gray3: $grey3;
-.grey-3, .gray-3 {
+.grey-3,
+.gray-3 {
   background-color: $grey3;
 }
 
 // Grey 4
 $grey4: #707070;
 $gray4: $grey4;
-.grey-4, .gray-4 {
+.grey-4,
+.gray-4 {
   background-color: $grey4;
 }
 
 // Grey 5
 $grey5: #494440;
 $gray5: $grey5;
-.grey-5, .gray-5 {
+.grey-5,
+.gray-5 {
   background-color: $grey5;
 }
 
 // COLORS // Special States
 
 // Visited
-$visited: #4C2C92;
+$visited: #4c2c92;
 .visited-color {
   background-color: $visited !important;
 }
 
 // Focus
-$focus: #1B69D3;
+$focus: #1b69d3;
 .focus-color {
   background-color: $focus !important;
 }
@@ -159,13 +164,13 @@ $hover: #004785;
 }
 
 // Active
-$active: #122E51;
+$active: #122e51;
 .active-color {
   background-color: $active !important;
 }
 
 // Disabled
-$disabled: #BBBBBB;
+$disabled: #bbbbbb;
 .disabled {
   background-color: $disabled;
 }

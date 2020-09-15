@@ -63,7 +63,7 @@ footer {
   }
   .footer-secondary-section {
     background: $grey1;
-    padding-top: 2.2rem;
+    padding-top: 24px;
     .footer-links-nav {
       display: flex;
       @media (max-width: $screen--S) {
@@ -84,8 +84,8 @@ footer {
         margin-top: 0;
         list-style-type: none;
         li {
-          line-height: 2.2rem !important;
-          margin-bottom: 1.2rem;
+          line-height: 22px !important;
+          margin-bottom: 12px;
           padding-right: 24px;
           a {
             font-size: 1.4rem;

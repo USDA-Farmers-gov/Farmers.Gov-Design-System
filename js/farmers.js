@@ -5,6 +5,13 @@ import "./Components/menu.js";
 import "./Components/mobile_menu.js";
 import "./Components/mega_menu.js";
 import Stepper from "./Components/Steppers/Vertical/Stepper.js";
+import "./Components/accordion.js";
+import "./Components/checkbox.js";
+import "./Components/radio_buttons.js";
+import "./Components/menu.js";
+import "./Components/mobile_menu.js";
+import "./Components/mobile_tables.js";
+import Stepper from "./Components/Steppers/Vertical/Stepper.js";
 
 window.Stepper = Stepper;
 

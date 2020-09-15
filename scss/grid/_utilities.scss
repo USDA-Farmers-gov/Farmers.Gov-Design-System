@@ -29,8 +29,8 @@
     flex-wrap: wrap;
     margin-left: 0;
     margin-right: 0;
-    // margin-left: ($_gutter / -2);
-    // margin-right: ($_gutter / -2);
+    margin-left: ($_gutter / -2);
+    margin-right: ($_gutter / -2);
 }
 
 //  Generate extra small columns
