@@ -23,11 +23,36 @@ window.addEventListener("load", function () {
                     document.querySelector(
                         ".mega-menu-mobile-primary-nav"
                     ).style.display = "block";
+                    closeButton();
                 } else {
                     setupMobileMenu(event, helper);
                 }
             }
         });
+    }
+
+    function closeButton() {
+        document
+            .querySelector(".mobile-menu-close")
+            .addEventListener("click", (event) => {
+                if (
+                    event.target.classList.contains("mobile-primary-nav") ||
+                    event.target.classList.contains("mobile-menu-close")
+                ) {
+                    const megaMenuMobileNav = document.querySelector(
+                        ".mega-menu-mobile-primary-nav"
+                    );
+                    if (megaMenuMobileNav) {
+                        megaMenuMobileNav.style.display = "none";
+                    } else {
+                        document.body.classList.toggle("mobile-menu-active");
+                        document.querySelector(
+                            ".mobile-primary-nav"
+                        ).style.display = "none";
+                        document.querySelector(".nav-container").innerHTML = "";
+                    }
+                }
+            });
     }
 
     function setupMobileMenu(event, helper) {
@@ -76,9 +101,11 @@ window.addEventListener("load", function () {
         );
         const submenuHasSubmenu = helper(event.target, "has-submenu");
 
+        closeButton();
+
         document.addEventListener("click", (event) => {
             const mobileNavItemClicked = helper(event.target, "nav-link");
-            console.log(event.target.classList);
+
             if (mobileNavItemClicked) {
                 if (
                     mobileNavItemClicked.classList.contains("accordion-button")
@@ -102,16 +129,6 @@ window.addEventListener("load", function () {
                     document.querySelector(".mobile-nav-footer").style.display =
                         "none";
                 }
-            }
-
-            if (
-                event.target.classList.contains("mobile-primary-nav") ||
-                event.target.classList.contains("mobile-menu-close")
-            ) {
-                document.body.classList.toggle("mobile-menu-active");
-                document.querySelector(".mobile-primary-nav").style.display =
-                    "none";
-                document.querySelector(".nav-container").innerHTML = "";
             }
 
             if (event.target.classList.contains("mobile-menu-back")) {
