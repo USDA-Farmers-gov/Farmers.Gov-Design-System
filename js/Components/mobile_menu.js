@@ -23,7 +23,7 @@ window.addEventListener("load", function () {
                     document.querySelector(
                         ".mega-menu-mobile-primary-nav"
                     ).style.display = "block";
-                    closeButton();
+                    closeButton(megaMenu);
                 } else {
                     setupMobileMenu(event, helper);
                 }
@@ -31,28 +31,28 @@ window.addEventListener("load", function () {
         });
     }
 
-    function closeButton() {
-        document
-            .querySelector(".mobile-menu-close")
-            .addEventListener("click", (event) => {
-                if (
-                    event.target.classList.contains("mobile-primary-nav") ||
-                    event.target.classList.contains("mobile-menu-close")
-                ) {
-                    const megaMenuMobileNav = document.querySelector(
+    function closeButton(megaMenu) {
+        document.addEventListener("click", (event) => {
+            if (
+                event.target.classList.contains("mobile-primary-nav") ||
+                event.target.classList.contains("mobile-menu-close")
+            ) {
+                if (megaMenu) {
+                    console.log("1");
+
+                    document.querySelector(
                         ".mega-menu-mobile-primary-nav"
-                    );
-                    if (megaMenuMobileNav) {
-                        megaMenuMobileNav.style.display = "none";
-                    } else {
-                        document.body.classList.toggle("mobile-menu-active");
-                        document.querySelector(
-                            ".mobile-primary-nav"
-                        ).style.display = "none";
-                        document.querySelector(".nav-container").innerHTML = "";
-                    }
+                    ).style.display = "none";
+                } else {
+                    console.log("2");
+                    document.body.classList.toggle("mobile-menu-active");
+                    document.querySelector(
+                        ".mobile-primary-nav"
+                    ).style.display = "none";
+                    document.querySelector(".nav-container").innerHTML = "";
                 }
-            });
+            }
+        });
     }
 
     function setupMobileMenu(event, helper) {
