@@ -38,13 +38,10 @@ window.addEventListener("load", function () {
                 event.target.classList.contains("mobile-menu-close")
             ) {
                 if (megaMenu) {
-                    console.log("1");
-
                     document.querySelector(
                         ".mega-menu-mobile-primary-nav"
                     ).style.display = "none";
                 } else {
-                    console.log("2");
                     document.body.classList.toggle("mobile-menu-active");
                     document.querySelector(
                         ".mobile-primary-nav"
