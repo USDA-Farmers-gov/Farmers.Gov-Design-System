@@ -11,7 +11,6 @@ import "./Components/radio_buttons.js";
 import "./Components/menu.js";
 import "./Components/mobile_menu.js";
 import "./Components/mobile_tables.js";
-import Stepper from "./Components/Steppers/Vertical/Stepper.js";
 
 window.Stepper = Stepper;
 

@@ -33,6 +33,8 @@ export function scripts(done) {
       .pipe(sourcemaps.write("./"))
       .pipe(gulp.dest("./dist/js"));
   });
+
+  done();
 }
 
 export function styles(done) {

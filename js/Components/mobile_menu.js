@@ -4,8 +4,10 @@ window.addEventListener("load", function () {
         document.documentElement.clientWidth ||
         document.body.clientWidth;
     if (is_mobile_device || w <= 1000) {
-        const megaMenu = document.querySelector(".primary-nav-wrap.megamenu");
         document.addEventListener("click", (event) => {
+            const megaMenu = document.querySelector(
+                ".primary-nav-wrap.megamenu"
+            );
             const helper = (element, className) => {
                 if (!!element) {
                     if (element.classList.contains(className)) {
@@ -22,13 +24,13 @@ window.addEventListener("load", function () {
                         ".mega-menu-mobile-primary-nav"
                     ).style.display = "block";
                 } else {
-                    setupMobileMenu();
+                    setupMobileMenu(event, helper);
                 }
             }
         });
     }
 
-    function setupMobileMenu() {
+    function setupMobileMenu(event, helper) {
         let mobileNav = document.querySelector(".mobile-primary-nav");
         let navBar = document.querySelector(".primary-nav");
         let navContainer = document.querySelector(".nav-container");
@@ -68,80 +70,86 @@ window.addEventListener("load", function () {
         navContainer.appendChild(mobileNavFooter);
 
         const mobileNavContainerClicked = helper(event.target, "nav-container");
-        const mobileNavItemClicked = helper(event.target, "nav-link");
+
         const mobileNavContainer = document.querySelector(
             ".menus-slider-container"
         );
         const submenuHasSubmenu = helper(event.target, "has-submenu");
 
-        if (mobileNavItemClicked) {
-            if (mobileNavItemClicked.classList.contains("accordion-button")) {
+        document.addEventListener("click", (event) => {
+            const mobileNavItemClicked = helper(event.target, "nav-link");
+            console.log(event.target.classList);
+            if (mobileNavItemClicked) {
+                if (
+                    mobileNavItemClicked.classList.contains("accordion-button")
+                ) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    let mobileSubmenu = mobileNavItemClicked.parentElement
+                        .querySelector(".nav-submenu")
+                        .cloneNode(true);
+                    let emptyNavDiv = document.createElement("div");
+                    emptyNavDiv.appendChild(mobileSubmenu);
+                    mobileNavContainer.appendChild(emptyNavDiv);
+                    mobileNavContainer.classList.toggle("level-2");
+                    document.querySelector(
+                        ".mobile-nav-header > .mobile-menu-back"
+                    ).style.display = "flex";
+                    document.querySelector(
+                        ".mobile-nav-header > #search-field"
+                    ).style.display = "none";
+                    document.querySelector(".mobile-nav-footer").style.display =
+                        "none";
+                }
+            }
+
+            if (
+                event.target.classList.contains("mobile-primary-nav") ||
+                event.target.classList.contains("mobile-menu-close")
+            ) {
+                document.body.classList.toggle("mobile-menu-active");
+                document.querySelector(".mobile-primary-nav").style.display =
+                    "none";
+                document.querySelector(".nav-container").innerHTML = "";
+            }
+
+            if (event.target.classList.contains("mobile-menu-back")) {
                 event.preventDefault();
                 event.stopPropagation();
 
-                let mobileSubmenu = mobileNavItemClicked.parentElement
-                    .querySelector(".nav-submenu")
+                let lowestLevel = mobileNavContainer.lastChild;
+
+                if (mobileNavContainer.classList.contains("level-3")) {
+                    mobileNavContainer.classList.remove("level-3");
+                } else {
+                    mobileNavContainer.classList.remove("level-2");
+                    document.querySelector(".mobile-menu-back").style.display =
+                        "none";
+                    document.querySelector(
+                        ".mobile-nav-header > #search-field"
+                    ).style.display = "flex";
+                    document.querySelector(".mobile-nav-footer").style.display =
+                        "flex";
+                }
+
+                setTimeout(() => {
+                    mobileNavContainer.removeChild(lowestLevel);
+                }, 50);
+            }
+
+            if (submenuHasSubmenu) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                let subSubmenu = submenuHasSubmenu
+                    .querySelector(".nav-submenu-submenu")
                     .cloneNode(true);
                 let emptyNavDiv = document.createElement("div");
-                emptyNavDiv.appendChild(mobileSubmenu);
+                emptyNavDiv.appendChild(subSubmenu);
                 mobileNavContainer.appendChild(emptyNavDiv);
-                mobileNavContainer.classList.toggle("level-2");
-                document.querySelector(
-                    ".mobile-nav-header > .mobile-menu-back"
-                ).style.display = "flex";
-                document.querySelector(
-                    ".mobile-nav-header > #search-field"
-                ).style.display = "none";
-                document.querySelector(".mobile-nav-footer").style.display =
-                    "none";
+                mobileNavContainer.classList.toggle("level-3");
             }
-        }
-
-        if (
-            event.target.classList.contains("mobile-primary-nav") ||
-            event.target.classList.contains("mobile-menu-close")
-        ) {
-            document.body.classList.toggle("mobile-menu-active");
-            document.querySelector(".mobile-primary-nav").style.display =
-                "none";
-            document.querySelector(".nav-container").innerHTML = "";
-        }
-
-        if (event.target.classList.contains("mobile-menu-back")) {
-            event.preventDefault();
-            event.stopPropagation();
-
-            let lowestLevel = mobileNavContainer.lastChild;
-
-            if (mobileNavContainer.classList.contains("level-3")) {
-                mobileNavContainer.classList.remove("level-3");
-            } else {
-                mobileNavContainer.classList.remove("level-2");
-                document.querySelector(".mobile-menu-back").style.display =
-                    "none";
-                document.querySelector(
-                    ".mobile-nav-header > #search-field"
-                ).style.display = "flex";
-                document.querySelector(".mobile-nav-footer").style.display =
-                    "flex";
-            }
-
-            setTimeout(() => {
-                mobileNavContainer.removeChild(lowestLevel);
-            }, 50);
-        }
-
-        if (submenuHasSubmenu) {
-            event.preventDefault();
-            event.stopPropagation();
-
-            let subSubmenu = submenuHasSubmenu
-                .querySelector(".nav-submenu-submenu")
-                .cloneNode(true);
-            let emptyNavDiv = document.createElement("div");
-            emptyNavDiv.appendChild(subSubmenu);
-            mobileNavContainer.appendChild(emptyNavDiv);
-            mobileNavContainer.classList.toggle("level-3");
-        }
+        });
     }
 });
