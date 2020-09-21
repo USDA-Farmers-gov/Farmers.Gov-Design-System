@@ -24,6 +24,7 @@ window.addEventListener("load", function () {
                         ".mega-menu-mobile-primary-nav"
                     ).style.display = "block";
                     closeButton(megaMenu);
+                    document.body.classList.toggle("mobile-menu-active");
                 } else {
                     setupMobileMenu(event, helper);
                 }
