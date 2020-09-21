@@ -147,16 +147,19 @@ $menu-width: 75vw;
         width: 17.3rem !important;
     }
     .mega-menu-mobile-close {
-        background-image: image("close-white.svg");
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background: $heritage;
+        background-image: image("close-white-bold.svg");
         background-repeat: no-repeat;
         background-position: right bottom;
         background-size: 13px;
         height: 16px;
         width: 67px;
         display: block;
-        float: right;
         text-align: left;
-        margin: 1.5rem;
+        margin: 1.5rem 0 1.5rem auto;
         text-transform: uppercase;
         font-size: 1.5rem;
         font-weight: 600;
