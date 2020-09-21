@@ -1,4 +1,5 @@
 $menu-width: 75vw;
+$mobile-menu-padding: 2rem;
 
 .mega-menu-mobile-primary-nav {
     display: none;
@@ -24,8 +25,8 @@ $menu-width: 75vw;
         overflow-x: hidden;
         overflow-y: scroll;
         @media (max-width: $screen--S) {
-            padding-left: 2rem;
-            padding-right: 2rem;
+            padding-left: $mobile-menu-padding;
+            padding-right: $mobile-menu-padding;
         }
         .mega-menu-mobile-toc {
             color: $white;
@@ -60,7 +61,7 @@ $menu-width: 75vw;
             .content-section-header {
                 position: -webkit-sticky;
                 position: sticky;
-                top: 0;
+                top: 5.3rem;
                 background: $heritage;
                 color: $white;
                 border-top: 1px solid rgba(73, 165, 100, 0.5);
@@ -147,22 +148,35 @@ $menu-width: 75vw;
         width: 17.3rem !important;
     }
     .mega-menu-mobile-close {
+        display: flex;
         position: -webkit-sticky;
         position: sticky;
         top: 0;
         background: $heritage;
-        background-image: image("close-white-bold.svg");
-        background-repeat: no-repeat;
-        background-position: right bottom;
-        background-size: 13px;
-        height: 16px;
-        width: 67px;
-        display: block;
-        text-align: left;
-        margin: 1.5rem 0 1.5rem auto;
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: $white;
+        width: $menu-width;
+        // text-align: left;
+        padding: 1.5rem 0 1.5rem auto;
+
+        a {
+            margin-left: auto;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: $white;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            padding-right: $mobile-menu-padding;
+            &:after {
+                content: "";
+                display: inline-block;
+                height: 2rem;
+                width: 2rem;
+                background-image: image("close-white-bold.svg");
+                background-repeat: no-repeat;
+                background-position: right bottom;
+                background-size: 13px;
+            }
+        }
     }
 }
