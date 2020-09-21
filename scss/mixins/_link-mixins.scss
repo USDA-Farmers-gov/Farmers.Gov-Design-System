@@ -1,3 +1,4 @@
+// hover mixins
 @mixin primary-hover {
   text-shadow: 0 0 0.08rem $heritage;
   -webkit-text-stroke: 1px $heritage;
@@ -6,4 +7,14 @@
   text-shadow: none;
   -webkit-text-stroke: unset;
   text-decoration: underline;
+}
+@mixin no-hover-color {
+  text-shadow: none;
+  -webkit-text-stroke: unset;
+}
+
+// focus mixins
+@mixin no-focus-color {
+  outline-color: none;
+  box-shadow: none;
 }
