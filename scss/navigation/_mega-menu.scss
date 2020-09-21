@@ -12,10 +12,14 @@
   flex-direction: column;
   background: $white;
   z-index: 100;
-  max-width: 1145px;
+  width: 1145px;
   top: 6.5rem;
   left: 10rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .nav-mega-menu-header {
     justify-content: space-between;
     width: 100%;
@@ -26,14 +30,14 @@
     padding: 1rem 0;
     border-right: 1px solid $grey3;
     padding-bottom: 2rem;
-    width: 27rem;
+    width: 25rem;
     li {
       margin-left: 0;
     }
   }
   .nav-mega-menu-links-container {
     display: none;
-    width: 100%;
+    width: 61vw;
     padding: 0;
     &.active {
       display: flex;
@@ -80,8 +84,8 @@
         }
       }
       .nav-mega-menu-feature {
-        position: relative;
-        left: 0.6rem;
+        // position: relative;
+        // left: 0.6rem;
         background: $grey1;
         max-width: 34.8rem;
         height: 100%;

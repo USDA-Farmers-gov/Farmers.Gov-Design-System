@@ -42,8 +42,9 @@ window.addEventListener("load", function () {
                     document.querySelector(
                         ".mega-menu-mobile-primary-nav"
                     ).style.display = "none";
+                    document.body.classList.remove("mobile-menu-active");
                 } else {
-                    document.body.classList.toggle("mobile-menu-active");
+                    document.body.classList.remove("mobile-menu-active");
                     document.querySelector(
                         ".mobile-primary-nav"
                     ).style.display = "none";
