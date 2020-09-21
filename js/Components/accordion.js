@@ -214,6 +214,7 @@ window.addEventListener("load", function () {
   });
 
   function toggleAccordion(evt, cardAccordion) {
+    evt.preventDefault();
     var target = evt.target;
     target.parentElement.parentElement.parentElement.classList.contains(
       "Card-Accordion"
