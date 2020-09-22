@@ -1,0 +1,39 @@
+.back-to-top {
+  position: fixed;
+  height: 64px;
+  width: 64px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  background-color: $white;
+  border: 2px solid $bigsky;
+  box-shadow: 0 1px 4px 0 $grey3;
+  border-radius: 50%;
+  right: 5rem;
+  bottom: 2rem;
+  z-index: 100;
+  cursor: pointer;
+  padding-top: 1rem;
+
+  .arrow {
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid $bigsky;
+    border-width: 0 2px 2px 0;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: $bigsky;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  @media only screen and (max-width: 1280px) {
+    right: 20px;
+  }
+}
