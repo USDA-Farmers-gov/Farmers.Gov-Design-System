@@ -82,6 +82,32 @@ function clickEvents(megaMenu) {
                     ".mega-menu-mobile-primary-nav"
                 ).style.display = "block";
                 closeButton(megaMenu);
+
+                document
+                    .querySelector(
+                        ".mega-menu-mobile-primary-nav .nav-container"
+                    )
+                    .addEventListener("scroll", function () {
+                        const firstHeaderTop = document
+                            .querySelector(
+                                ".content-section-header:first-of-type"
+                            )
+                            .getBoundingClientRect().top;
+
+                        const closeElementHeight = document
+                            .querySelector(".mobile-mega-menu-close")
+                            .getBoundingClientRect().height;
+
+                        const backToTop = document.querySelector(
+                            ".back-to-top"
+                        );
+
+                        if (firstHeaderTop === closeElementHeight) {
+                            backToTop.style.display = "block";
+                        } else {
+                            backToTop.style.display = "none";
+                        }
+                    });
             } else {
                 document.querySelector(".mobile-primary-nav").style.display =
                     "flex";
