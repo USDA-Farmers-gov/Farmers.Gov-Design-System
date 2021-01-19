@@ -13,11 +13,9 @@
   .nav-container {
     max-width: 75vw;
     width: 75vw;
-    height: 100vh;
+    height: 100%;
     background: $heritage;
-    display: flex;
     align-items: center;
-    flex-direction: column;
     overflow-x: hidden;
     overflow-y: scroll;
 
@@ -198,6 +196,8 @@
 .mobile-menu-active {
   overflow: hidden;
   position: fixed;
+  touch-action: none;
+  top: 0;
   margin: 0;
   padding: 0;
 }
@@ -246,11 +246,14 @@
       margin: 0;
       border-radius: 2.5px;
       zoom: 0.8;
+      a {
+        font-size: 1.3rem;
+      }
     }
     .utility-nav {
       display: flex;
       flex: 0.65;
-      padding-bottom: 0.5rem;
+      padding-bottom: 12rem;
 
       ul {
         flex-direction: column;

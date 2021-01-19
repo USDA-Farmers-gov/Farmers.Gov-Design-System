@@ -1,5 +1,12 @@
-*, ::after, ::before {
+*,
+::after,
+::before {
   box-sizing: border-box;
+}
+html,
+body {
+  width: auto !important;
+  overflow-x: hidden !important;
 }
 
 html {
@@ -18,8 +25,8 @@ button {
 .focus {
   outline-color: -webkit-focus-ring-color;
   outline-style: auto;
-  outline-width: .3rem;
-  outline-offset: .5rem;
+  outline-width: 0.3rem;
+  outline-offset: 0.5rem;
 }
 
 .usa-sr-only {
@@ -33,8 +40,8 @@ button {
 }
 
 @media print {
-* {
+  * {
     -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
-    color-adjust: exact !important;  /*Firefox*/
+    color-adjust: exact !important; /*Firefox*/
   }
 }
