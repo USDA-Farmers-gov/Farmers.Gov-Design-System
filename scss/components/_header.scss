@@ -45,7 +45,8 @@
 }
 
 // Search field in header
-#search-field {
+#search-field, 
+#search-field-mobile {
   display: flex;
   margin-bottom: 0;
   background-color: $heritage;
