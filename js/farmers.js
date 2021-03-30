@@ -5,6 +5,7 @@ import "./Components/menu.js";
 import "./Components/mobile_menu.js";
 import "./Components/mobile_tables.js";
 import Stepper from "./Components/Steppers/Vertical/Stepper.js";
+import * as keyboard_events from "./_utils/keyboard_events";
 
 window.Stepper = Stepper;
 
@@ -22,3 +23,5 @@ if (
 ) {
   window.is_mobile_device = true;
 }
+
+keyboard_events.setKeyListeners();

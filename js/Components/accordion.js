@@ -3,6 +3,35 @@ window.addEventListener("render-accordions", function () {
 });
 window.addEventListener("load", function () {
   processAccordions();
+
+  let accordion_cards = [...document.querySelectorAll(".Card-Accordion")];
+
+  accordion_cards.map((cardAccordion) => {
+    cardAccordion.addEventListener("click", (evt) => {
+      toggleAccordion(evt, cardAccordion);
+    });
+
+    cardAccordion.addEventListener("keydown", (evt) => {
+      const keysPressed = sessionStorage.getItem("keys_pressed");
+      console.log(keysPressed);
+      if (evt.keyCode.toString() === "9") {
+        if (
+          !evt.currentTarget
+            .querySelector(".card-accordion")
+            .classList.contains("show") &&
+          !evt.target.classList.contains("card-accordion-show-more")
+        ) {
+          evt.preventDefault();
+          evt.target.blur();
+          evt.currentTarget.querySelector(".card-accordion-toggle a").focus();
+        }
+      }
+      if (evt.keyCode.toString().match(/32|13/)) {
+        evt.preventDefault();
+        toggleAccordion(evt, cardAccordion);
+      }
+    });
+  });
 });
 
 function processAccordions() {
@@ -105,7 +134,6 @@ function processAccordions() {
       accordion.addEventListener("keydown", function (event) {
         var target = event.target;
         var key = event.which.toString();
-
         var isExpanded = target.getAttribute("aria-expanded") == "true";
         var allowToggle = allowMultiple
           ? allowMultiple
@@ -184,28 +212,6 @@ function processAccordions() {
     });
     setBoxAccordionTopHeight();
   });
-
-  let accordion_card_array = [...document.querySelectorAll(".Card-Accordion")];
-  let accordion_card_content_links_array = [
-    ...document.querySelectorAll(".card-accordion-content a"),
-  ];
-
-  accordion_card_content_links_array.map((link) => {
-    link.setAttribute("tabindex", "-1");
-  });
-
-  accordion_card_array.map((cardAccordion) => {
-    cardAccordion.addEventListener("click", (evt) => {
-      toggleAccordion(evt, cardAccordion);
-    });
-
-    cardAccordion.addEventListener("keydown", (evt) => {
-      if (evt.keyCode.match(/32|13/)) {
-        evt.preventDefault();
-        toggleAccordion(evt, cardAccordion);
-      }
-    });
-  });
 }
 function toggleAccordion(evt, cardAccordion) {
   evt.preventDefault();
@@ -237,19 +243,21 @@ function toggleAccordion(evt, cardAccordion) {
         .querySelector(".Card-Accordion .card-accordion")
         .classList.contains("show")
     ) {
-      for (let i = 0; i < content_links.length; i++)
-        content_links[i].setAttribute("tabindex", "0");
+      const focusedElement = document.querySelector(".Card-Accordion :focus");
+      if (focusedElement) focusedElement.blur();
+      target.focus();
 
       target.scrollIntoView({
         behavior: "smooth",
       });
+
       target.querySelector(".card-accordion-toggle > a").innerHTML =
         "Show Less";
     } else {
-      for (let i = 0; i < content_links.length; i++)
-        content_links[i].setAttribute("tabindex", "-1");
-      target.querySelector(".card-accordion-toggle > a").innerHTML =
-        "Show More";
+      const toggleLink = target.querySelector(".card-accordion-toggle > a");
+
+      toggleLink.innerHTML = "Show More";
+      toggleLink.focus();
       target.scrollIntoView({
         behavior: "smooth",
       });
